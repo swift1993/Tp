@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .main{
+            width: 100%;
+            margin:0 auto;
+            min-width: 1024px;
+        }
+
+    .top{
+        background: url('__PUBLIC__/Picture/timg.jpg') no-repeat;
+        background-size: auto 800px;
+        width: 1760px;
+        height: 800px;
+        margin: 0 auto;
+        position:relative;
+    }
+
+        .qyn{
+            position: absolute;
+            top: 30px;
+            left: 20px;
+        }
+        .bh3{
+            position: absolute;
+            top: 60px;
+            left: 1100px;
+        }
+        .ai{
+            position: absolute;
+            top:550px;
+            left: 1500px;
+        }
+        .tip{
+            position: absolute;
+            top: 300px;
+            left: 400px;
+        }
+        .ai a{
+            text-decoration: none;
+        }
+        .down{
+            width: 960px;
+            margin: 0 auto;
+            margin-top: 40px;
+            overflow:hidden;
+            clear:both
+        }
+        #acter_list{
+            width: 960px;
+            height: auto;
+            margin:0 auto;
+        }
+        #acter_list li{
+            list-style: none;
+            float: left;
+            width: 25%;
+            height: 160px;
+            margin-bottom: 30px;
+        }
+        #acter_list li a{
+            text-decoration: none;
+            width: 85%;
+            display: block;
+            text-align: center;
+            border: 2px solid #4bb1cf;
+            background: rgba(23,203,255,0.5);
+            height: 156px;
+            border-radius: 30px;
+        }
+    </style>
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#ai").mouseover(function () {
+                this.style.width=200+"px";
+                this.style.height=190+"px";
+            });
+            $("#ai").mouseleave(function () {
+                this.style.width=180+"px";
+                this.style.height=170+"px";
+            });
+            $("#acter_list li a").mouseover(function () {
+                this.style.width=200+"px";
+                this.style.height=170+"px";
+                $(this).css("backgroundColor", "rgba(255,255,0,0.5)");
+            })
+            $("#acter_list li a").mouseleave(function () {
+                this.style.width=180+"px";
+                this.style.height=155+"px";
+                $(this).css("backgroundColor", "rgba(23,203,255,0.5)");
+            })
+        });
+    </script>
+</head>
+<body>
+<include file="Public/header"/>
+<div class="main">
+
+    <div class="top">
+        <div class="qyn">
+            <img src="__PUBLIC__/Picture/kiana.png" alt="琪亚娜">
+        </div>
+        <div class="tip">
+            <img src="__PUBLIC__/Picture/bh3_slogan.png" alt="宣传标语">
+        </div>
+        <div class="bh3">
+            <img src="__PUBLIC__/Picture/bh3logo.png" alt="崩坏3logo">
+        </div>
+        <div class="ai">
+            <a href=""><img id=ai src="__PUBLIC__/Picture/social_btn.png" alt="爱酱"></a>
+        </div>
+    </div>
+    <div class="down">
+            <ul id="acter_list">
+                <foreach name="result" item="vo">
+                    <li><a href=""><img src="{$vo.picture}"></a></li>
+                </foreach>
+            </ul>
+    </div>
+
+</div>
+<include file="Public/bottom"/>
+</body>
+</html>

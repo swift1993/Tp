@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .nav{
+            position: fixed;
+            top:20px;
+            left:0;
+            width: 100%;
+            min-width:1024px;
+            z-index:1000;
+            font-size:18px;
+        }
+        ul{
+            position:relative;
+            width:960px;
+            margin:0 auto;
+            text-align:center;
+            white-space:nowrap;
+        }
+        ul li{
+            list-style: none;
+            display: inline-block;
+            width:12.5%;
+            height:50px;
+        }
+        a{
+            text-decoration: none;
+            width: 95%;
+            display: block;
+            text-align: center;
+            border: 2px solid #4bb1cf;
+            background: rgba(255,255,255,1);
+            border-radius:10px;
+            height:50px;
+            line-height: 50px;
+            color: red;
+            transform: skew(-10deg);
+
+        }
+
+    </style>
+    <script type="text/javascript" src="../Js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("a").mouseover(function () {
+                this.style.background="skyblue";
+                this.style.color="black";
+            });
+
+            $("a").mouseleave(function () {
+                this.style.background="white";
+                this.style.color="red";
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li><a href="">首页</a></li>
+        <li><a href="">作战资讯</a></li>
+        <li><a href="">游戏视频</a></li>
+        <li><a href="">角色介绍</a></li>
+        <li><a href="">游戏特色</a></li>
+        <li><a href="">圣痕系统</a></li>
+        <li><a href="">故事背景</a></li>
+        <li><a href="">游戏CG</a></li>
+    </ul>
+</div>
+</body>
+</html>
