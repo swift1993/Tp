@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣痕购买</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            width: 964px;
+            margin: 0 auto;
+            margin-top: 150px;
+        }
+        #stig li{
+            list-style: none;
+            width: 960px;
+            height: 300px;
+            border:2px solid #000000;
+            margin-bottom: 2px;
+            
+        }
+        #stig li div{
+            float: left;
+        }
+        .img{
+            height: 100%;
+            width: 328px;
+            border-right: 2px solid #a9dba9;
+
+        }
+        .img img{
+            margin: 75px 63px;
+        }
+        .desc{
+            height: 100%;
+            width: 300px;
+        }
+        .desc div{
+            height: 149px;
+            width: 100%;
+            border-bottom: 1px solid #000088;
+        }
+        .num{
+            height: 100%;
+            width: 328px;
+            border-left: 2px solid #000088;
+            position: relative;
+        }
+        .do_num{
+            position: absolute;
+            top:120px;
+            left: 90px;
+            border: 1px solid #000000;
+        }
+        .do_num div{
+            float: left;
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+            font-size: 24px;
+            border:1px solid #000000;
+            cursor: pointer;
+        }
+        .do_num input{
+            float: left;
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+            font-size: 24px;
+        }
+        #addcar{
+            margin: 0 auto;
+            width: 200px;
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 30px;
+            background: #0e90d2;
+            cursor: pointer;
+        }
+    </style>
+    <script src="__PUBLIC__/Js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".do_num div").click(function () {
+                $.ajax({
+                    url:'/TP/ThinkPHP.php/Home/Pay/jj',
+                    type:'post',
+                    data:{'status':$(this).data('index'),'num':($(this).data('index')?$(this).prev().val():$(this).next().val())},
+                    dataType:'json',
+                    error:function (data) {
+                        alert('异常');
+                    },
+                    success:function (data) {
+                        if(data.status==0){
+                            $(this).next().val(data.num);
+                        }else{
+                            $(this).prev().val(data.num);
+                        }
+
+                    }.bind(this)
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<include file="Public/Header"/>
+     <ul id="stig">
+         <foreach name="res" item="vo">
+         <li>
+             <div class="img"><img src="{$vo.url}"></div>
+             <div class="desc">
+                 <div>{$vo.price}</div>
+                 <div>{$vo.des}</div>
+             </div>
+             <div class="num">
+                 <div class="do_num">
+                     <div data-index="0">-</div>
+                     <input type="text">
+                     <div data-index="1" >+</div>
+                 </div>
+
+             </div>
+         </li>
+         </foreach>
+     </ul>
+<div id="addcar">加入购物车</div>
+</body>
+</html>

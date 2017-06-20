@@ -294,7 +294,7 @@
         <li><a href="">游戏视频</a></li>
         <li><a href="">角色介绍</a></li>
         <li><a href="">游戏特色</a></li>
-        <li><a href="">圣痕系统</a></li>
+        <li><a href="<?php echo U('Pay/index');?>">圣痕系统</a></li>
         <li><a href="">故事背景</a></li>
         <li><a href="">游戏CG</a></li>
         <?php if(!isset($_SESSION['id'])): ?><div class="login"><a href="<?php echo U('Login/index');?>">登录</a></div>
